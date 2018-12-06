@@ -1,4 +1,4 @@
-# Singularity container for Abaqus 2017
+# Singularity container for Abaqus 2018
 
 Abaqus works well under Centos but is much less likely to work well under a bleeding edge distro like Arch, so let's run Abaqus within a Singularity container,
 setting things up in such a way that we can run Abaqus CAE with hardware-accelerated (NVIDIA) graphics.
