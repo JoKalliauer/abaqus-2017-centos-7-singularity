@@ -23,7 +23,7 @@ From: centos:7
     ksh ./2/SIMULIA_AbaqusServices_CAA_API/Linux64/1/StartTUI.sh --silent /cfgs/UserIntentions_CAA_Additional.xml
 
 %environment
-    export PATH=/opt/abaqus/2017/Commands:$PATH
+    export PATH=/opt/abaqus/2018/Commands:$PATH
 
 %runscript
     vglrun abaqus cae
