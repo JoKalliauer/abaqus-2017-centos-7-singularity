@@ -14,7 +14,7 @@ From: centos:7
 %post
     cd /iso-unpacked/AM_SIM_Abaqus_Extend.AllOS/
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which gcc-gfortran
+    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which gcc-gfortran vim
     yum clean all && rm -rf /var/cache/yum
     cd /iso-unpacked/AM_SIM_Abaqus_Extend.AllOS/
     ksh ./1/SIMULIA_Documentation/AllOS/1/StartTUI.sh --silent /cfgs/UserIntentions_DOC.xml
