@@ -10,6 +10,7 @@ From: centos:7
     cp assets/simulation-services-UserIntentions_CODE.xml ${SINGULARITY_ROOTFS}/cfgs/
     cp assets/cae-UserIntentions_CODE.xml ${SINGULARITY_ROOTFS}/cfgs/
     cp assets/UserIntentions_CAA_Additional.xml ${SINGULARITY_ROOTFS}/cfgs/
+    cp assets/lnx86_64.env ${SINGULARITY_ROOTFS}/tmp/
 
 %post
     cd /iso-unpacked/AM_SIM_Abaqus_Extend.AllOS/
@@ -21,6 +22,8 @@ From: centos:7
     ksh ./2/SIMULIA_AbaqusServices/Linux64/1/StartTUI.sh --silent /cfgs/simulation-services-UserIntentions_CODE.xml
     ksh ./3/SIMULIA_Abaqus_CAE/Linux64/1/StartTUI.sh --silent /cfgs/cae-UserIntentions_CODE.xml
     ksh ./2/SIMULIA_AbaqusServices_CAA_API/Linux64/1/StartTUI.sh --silent /cfgs/UserIntentions_CAA_Additional.xml
+    rm /opt/abaqus/2018/V6R2018x/linux_a64/SMA/site/lnx86:64.env
+    mv /tmp/lnx86_64.env /opt/abaqus/2018/V6R2018x/linux_a64/SMA/site
 
 %environment
     export PATH=/opt/abaqus/2018/Commands:$PATH
