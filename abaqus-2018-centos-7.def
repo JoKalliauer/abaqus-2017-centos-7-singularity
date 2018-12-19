@@ -26,7 +26,8 @@ From: centos:7
     export PATH=/opt/abaqus/2018/Commands:$PATH
 
 %runscript
-    vglrun abaqus cae
+    #For use with non nvidia GPU
+    abaqus cae -mesa
 
 %labels
 Maintainer willfurnass
