@@ -8,6 +8,7 @@ From: centos:7
     assets/2016/ /abqbuild/
     assets/VirtualGL.repo /etc/yum.repos.d
     assets/VirtualGL.key /abqbuild/
+    assets/graphicsConfig.env.ext /abqbuild/
 
 %post
     cd /tmp/abaqus/2016/AM_SIM_Abaqus_Extend.AllOS/1
@@ -22,6 +23,7 @@ From: centos:7
 
     rm /usr/DassaultSystemes/SimulationServices/V6R2016x/linux_a64/SMA/site/lnx86_64.env
     mv /abqbuild/lnx86_64.env /usr/DassaultSystemes/SimulationServices/V6R2016x/linux_a64/SMA/site
+    cat /abqbuild/graphicsConfig.env.ext >> /usr/DassaultSystemes/SimulationServices/V6R2016x/linux_a64/SMA/site/graphicsConfig.env
 
     mkdir /calc
 
