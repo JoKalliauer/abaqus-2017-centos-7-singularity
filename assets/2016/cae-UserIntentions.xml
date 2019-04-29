@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Media mediaLevel="418" mediaName="CODE\linux_a64\SIMULIA_Abaqus_CAE.media\media">
+	<SetVariable name="solverDir" setByUser="true" setType="default">
+		<SetPath value="/usr/DassaultSystemes/SimulationServices/V6R2016x"/>
+	</SetVariable>
+	<SetVariable name="commandsDir" setByUser="true" setType="default">
+		<SetPath value="/var/DassaultSystemes/SIMULIA/Commands"/>
+	</SetVariable>
+	<SetVariable name="serverType_radioButton" setByUser="true" setType="default"/>
+	<SetVariable name="serverType_radioButton?flex" setByUser="true" setType="default">
+		<SetBoolean value="true"/>
+	</SetVariable>
+	<SetVariable name="serverType_radioButton?dsls" setByUser="true" setType="default">
+		<SetBoolean value="false"/>
+	</SetVariable>
+	<SetVariable name="licenseServer1" setByUser="true" setType="default">
+		<SetText value="1763@lic1.hrz.tu-darmstadt.de"/>
+	</SetVariable>
+	<SetVariable name="licenseServer2" setByUser="true" setType="default">
+		<SetText value="1763@lic2.hrz.tu-darmstadt.de"/>
+	</SetVariable>
+	<SetVariable name="licenseServer3" setByUser="true" setType="default">
+		<SetText value="1763@lic3.hrz.tu-darmstadt.de"/>
+	</SetVariable>
+	<SetVariable name="docRoot" setByUser="true" setType="default">
+		<SetText value="http://lame.fsm.maschinenbau.tu-darmstadt.de:2080/v2016/index.html"/>
+	</SetVariable>
+	<SetVariable name="workingDir" setByUser="true" setType="default">
+		<SetPath value="/var/tmp"/>
+	</SetVariable>
+	<SetVariable name="TARGET_PATH" setByUser="true" setType="default">
+		<SetPath value="/usr/SIMULIA/CAE/2016"/>
+	</SetVariable>
+	<SetVariable name="FinishPanel" setByUser="true" setType="default"/>
+	<SetVariable fromFeature="CODE\linux_a64\SIMULIA_Abaqus_CAE.media" name="DSYWelcomePanel" setByUser="true" setType="default">
+		<SetWelcome value="true"/>
+	</SetVariable>
+</Media>

@@ -1,0 +1,35 @@
+BootStrap: docker
+From: centos:7
+
+%setup
+    [ ! -d /tmp/abaqus/2016/AM_SIM_Abaqus_Extend.AllOS/ ] && echo "Please mount installation files in /tmp/abaqus/2016/AM_SIM_Abaqus_Extend.AllOS/" && return 1 || :
+
+%files
+    assets/2016/ /abqbuild/
+    assets/VirtualGL.repo /etc/yum.repos.d
+    assets/VirtualGL.key /abqbuild/
+
+%post
+    cd /tmp/abaqus/2016/AM_SIM_Abaqus_Extend.AllOS/1
+
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which gcc-gfortran vim gcc-c++ compat-libstdc++-33 glibc.i686
+    yum clean all && rm -rf /var/cache/yum
+
+    ksh ./3DEXPERIENCE_AbaqusSolver/Linux64/1/StartTUI.sh --silent /abqbuild/solver-UserIntentions.xml
+    ksh ./CAA_3DEXPERIENCE_AbaqusSolver/Linux64/1/StartTUI.sh --silent /abqbuild/caa-UserIntentions.xml
+    ksh ./SIMULIA_Abaqus_CAE/Linux64/1/StartTUI.sh --silent /abqbuild/cae-UserIntentions.xml
+
+    rm /usr/DassaultSystemes/SimulationServices/V6R2016x/linux_a64/SMA/site/lnx86_64.env
+    mv /abqbuild/lnx86_64.env /usr/DassaultSystemes/SimulationServices/V6R2016x/linux_a64/SMA/site
+
+    mkdir /calc
+
+    rm -rf /abqbuild
+
+%runscript
+    /var/DassaultSystemes/SIMULIA/Commands/abq2016 cae
+
+%labels
+Maintainer jordan@fsm.tu-darmstadt.de
+Version v0.2
