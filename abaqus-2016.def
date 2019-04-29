@@ -29,6 +29,9 @@ From: centos:7
 
     rm -rf /abqbuild
 
+%environment
+    export PATH=/var/DassaultSystemes/SIMULIA/Commands/:$PATH
+
 %runscript
     /var/DassaultSystemes/SIMULIA/Commands/abq2016 cae
 
