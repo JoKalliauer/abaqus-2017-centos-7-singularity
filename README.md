@@ -34,5 +34,5 @@ sudo singularity build ~/imgs/sing/abaqus-centos-7.img ./abaqus-centos-7.def
 To run Abaqus CAE without hardware-accelerated graphics:
 
 ```bash
-singularity exec --bind /opt/abaqus /home/jkalliau/imgs/sing/abaqus-centos-7.img vglrun /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
+singularity exec --bind /opt/abaqus /home/jkalliau/imgs/sing/abaqus-centos-7.img /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
 ```
