@@ -1,0 +1,58 @@
+BootStrap: docker
+From: centos:7
+
+OSVersion: 7
+
+MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
+
+Include: yum
+
+%files
+    assets/2018/ /abqbuild/
+    assets/VirtualGL.repo /etc/yum.repos.d
+    assets/VirtualGL.key /abqbuild/
+    assets/graphicsConfig.env.ext /abqbuild/
+
+%setup
+    mkdir -p ${SINGULARITY_ROOTFS}/iso-unpacked/
+    #bsdtar xf Abaqus2017.iso -C ${SINGULARITY_ROOTFS}/iso-unpacked/
+    mkdir -p ${SINGULARITY_ROOTFS}/cfgs/
+    cp assets/VirtualGL.repo ${SINGULARITY_ROOTFS}/etc/yum.repos.d
+    cp assets/UserIntentions_DOC.xml ${SINGULARITY_ROOTFS}/cfgs/
+    cp assets/simulation-services-UserIntentions_CODE.xml ${SINGULARITY_ROOTFS}/cfgs/
+    cp assets/cae-UserIntentions_CODE.xml ${SINGULARITY_ROOTFS}/cfgs/
+    cp assets/UserIntentions_CAA_Additional.xml ${SINGULARITY_ROOTFS}/cfgs/
+
+%post
+    cd /iso-unpacked/
+    #wget -O /etc/yum.repos.d/VirtualGL.repo https://virtualgl.org/pmwiki/uploads/Downloads/VirtualGL.repo
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+    yum install -y VirtualGL glx-utils 
+    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo
+    yum clean all && rm -rf /var/cache/yum
+    #ksh ./1/SIMULIA_Documentation/AllOS/1/StartTUI.sh --silent /cfgs/UserIntentions_DOC.xml
+    #ksh ./2/SIMULIA_AbaqusServices/Linux64/1/StartTUI.sh --silent /cfgs/simulation-services-UserIntentions_CODE.xml
+    #ksh ./2/SIMULIA_Abaqus_CAE/Linux64/1/StartTUI.sh --silent /cfgs/cae-UserIntentions_CODE.xml
+    #ksh ./2/SIMULIA_AbaqusServices_CAA_API/Linux64/1/StartTUI.sh --silent /cfgs/UserIntentions_CAA_Additional.xml
+    #ksh /opt/abaqus/CAE/2016/InstallData/installer/StartTUI.sh --silent /cfgs/UserIntentions_DOC.xml
+    #ksh /opt/abaqus/CAE/2019/InstallData/installer/StartTUI.sh --silent /cfgs/simulation-services-UserIntentions_CODE.xml
+    #ksh /opt/abaqus/AbaqusSolver/V6R2016x/InstallData/installer/StartTUI.sh --silent /cfgs/cae-UserIntentions_CODE.xml
+    #ksh /opt/abaqus/SimulationServices/V6R2019x/InstallData/installer/StartTUI.sh --silent /cfgs/UserIntentions_CAA_Additional.xml
+    #cd /tmp/abaqus/2018/AM_SIM_Abaqus_Extend.AllOS
+
+    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+    until yum makecache -y --disablerepo='*' --enablerepo='VirtualGL'; do :;done
+    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which gcc-gfortran vim gcc-c++ glibc.i686
+    yum clean all && rm -rf /var/cache/yum
+
+    mkdir /calc
+
+%environment
+    export PATH=/opt/abaqus/Commands:/opt/abaqus/2017/Commands:$PATH
+
+%runscript
+    vglrun abaqus cae -mesa
+
+%labels
+Maintainer jordan@fsm.tu-darmstadt.de
+Version v0.2
