@@ -5,11 +5,10 @@ setting things up in such a way that we can run Abaqus CAE with mesa.
 
 ## Preparations
 
-###Singularity
 1. Abaqus is copied to /opt/abaqus/ (or anything else).
 2. Make sure you have Singularity 3.5.3 (or newer) installed. (I used 3.6)
 
-```
+```bash
 go get -d github.com/sylabs/singularity
 export VERSION=3.6.0 && # adjust this as necessary     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz &&     cd singularity
 cd ..
@@ -34,6 +33,6 @@ sudo singularity build ~/imgs/sing/abaqus-centos-7.img ./abaqus-centos-7.def
 
 To run Abaqus CAE without hardware-accelerated graphics:
 
-```
+```bash
 singularity exec --bind /opt/abaqus /home/jkalliau/imgs/sing/abaqus-centos-7.img vglrun /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
 ```
