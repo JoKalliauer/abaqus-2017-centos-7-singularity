@@ -54,5 +54,4 @@ Include: yum
     vglrun abaqus cae -mesa
 
 %labels
-Maintainer jordan@fsm.tu-darmstadt.de
-Version v0.2
+Version v0.2.1
