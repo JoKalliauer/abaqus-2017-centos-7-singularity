@@ -8,11 +8,13 @@ echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
     
 
 #For Ubuntu 20.04 you need singularity 3.5.3 or newer
-export VERSION=3.6.0 && # adjust this as necessary
-wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz &&     cd singularity
-cd ..
+#For Fedora 32 you need singularity 3.6.2 or newer
+export VERSION=3.6.2 && # adjust this as necessary
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz
 cd singularity/
-./mconfig &&     make -C ./builddir &&     sudo make -C ./builddir install
+./mconfig
+make -C ./builddir
+sudo make -C ./builddir install
 which singularity
 singularity --version
 cd ..
