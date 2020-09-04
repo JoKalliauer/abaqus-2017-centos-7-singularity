@@ -14,7 +14,8 @@ rm -r /usr/local/go
 wget https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz #https://golang.org/doc/install
 sudo tar -C /usr/local -xzf go1.15.1.linux-amd64.tar.gz
 echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
-export VERSION=3.6.0 && # adjust this as necessary     wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz &&     cd singularity
+export VERSION=3.6.0 && # adjust this as necessary
+wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz &&     cd singularity
 cd ..
 cd singularity/
 ./mconfig &&     make -C ./builddir &&     sudo make -C ./builddir install
@@ -38,5 +39,5 @@ sudo singularity build ~/imgs/sing/abaqus-centos-7.img ./abaqus-centos-7.def
 To run Abaqus CAE without hardware-accelerated graphics:
 
 ```bash
-singularity exec --bind /opt/abaqus /home/jkalliau/imgs/sing/abaqus-centos-7.img /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
+singularity exec --bind /opt/abaqus ~/imgs/sing/abaqus-centos-7.img /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
 ```

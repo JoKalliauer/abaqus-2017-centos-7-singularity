@@ -6,8 +6,8 @@ wget https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz #https://golang.org/do
 sudo tar -C /usr/local -xzf go1.15.1.linux-amd64.tar.gz
 echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
     
-git clone https://github.com/JoKalliauer/abaqus-centos-7-singularity.git
 
+#For Ubuntu 20.04 you need singularity 3.5.3 or newer
 export VERSION=3.6.0 && # adjust this as necessary
 wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz &&     cd singularity
 cd ..
@@ -20,12 +20,11 @@ cd ..
 
 mkdir -p ~/imgs/sing
 rm -f ~/imgs/sing/abaqus-centos-7.img
-clone git https://github.com/JoKalliauer/abaqus-centos-7-singularity.git
+git clone https://github.com/JoKalliauer/abaqus-centos-7-singularity.git
 cd ./abaqus-centos-7-singularity
-#For Ubuntu 20.04 you need singularity 3.5.3 or newer
 sudo singularity build ~/imgs/sing/abaqus-centos-7.img ./abaqus-centos-7.def 
 
-singularity exec --bind /opt/abaqus /home/jkalliau/imgs/sing/abaqus-centos-7.img vglrun /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
+singularity exec --bind /opt/abaqus ~/imgs/sing/abaqus-centos-7.img vglrun /opt/abaqus/CAE/2019/linux_a64/code/bin/ABQLauncher cae -mesa
 
 
 #
