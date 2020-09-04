@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo dnf install gcc-go golang-bin
+#sudo dnf install gcc-go golang-bin
 rm -r /usr/local/go
 wget https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz #https://golang.org/doc/install
 sudo tar -C /usr/local -xzf go1.15.1.linux-amd64.tar.gz

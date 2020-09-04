@@ -6,17 +6,16 @@ setting things up in such a way that we can run Abaqus CAE with mesa.
 ## Preparations
 
 1. Abaqus is copied to /opt/abaqus/ (or anything else).
-2. Make sure you have Singularity 3.5.3 (or newer) installed. (I used 3.6)
+2. Make sure you have Singularity 3.6.2 (or newer) installed. (On newer OS you might need a newer singularity-version.)
 
 ```bash
-sudo dnf install gcc-go golang-bin
+#sudo dnf install gcc-go golang-bin
 rm -r /usr/local/go
 wget https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz #https://golang.org/doc/install
 sudo tar -C /usr/local -xzf go1.15.1.linux-amd64.tar.gz
 echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
-export VERSION=3.6.0 && # adjust this as necessary
-wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz &&     tar -xzf singularity-${VERSION}.tar.gz &&     cd singularity
-cd ..
+export VERSION=3.6.2 && # adjust this as necessary
+tar -xzf singularity-${VERSION}.tar.gz
 cd singularity/
 ./mconfig &&     make -C ./builddir &&     sudo make -C ./builddir install
 which singularity
