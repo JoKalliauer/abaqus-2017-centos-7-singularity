@@ -5,14 +5,51 @@ setting things up in such a way that we can run Abaqus CAE with mesa.
 
 ## Preparations
 
-1. Abaqus is copied to /opt/abaqus/ (or anything else), if you encouter problems try:
+1. Abaqus is copied to /opt/abaqus/ (or anything else), if you install abaqus try:
 ```bash
+hallo=$(locate Linux.sh)
+var1=$(echo $hallo | cut -f1 -d" ");
+var2=$(echo $hallo | cut -f2 -d" ");
+var3=$(echo $hallo | cut -f3 -d" ");
+var4=$(echo $hallo | cut -f4 -d" ");
+var5=$(echo $hallo | cut -f5 -d" ");
+var6=$(echo $hallo | cut -f6 -d" ");
+var7=$(echo $hallo | cut -f7 -d" ");
+var8=$(echo $hallo | cut -f8 -d" ");
+var9=$(echo $hallo | cut -f9 -d" ");
+var0=$(echo $hallo | cut -f10 -d" ");
+varB=$(echo $hallo | cut -f11 -d" ");
+
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var1
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var2
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var3
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var4
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var5
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var6
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var7
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var8
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var9
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $var0
+sudo sed -ri "s/DSY_OS_Release=\`[-[:alnum:] _\|\/\']+\`/DSY_OS_Release=\"CentOS\"/" $varB
+
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var1
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var2
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var3
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var4
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var5
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var6
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var7
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var8
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var9
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $var0
+sudo sed -i 's/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS")/    "RedHatEnterpriseServer"|"RedHatEnterpriseClient"|"RedHatEnterpriseWorkstation"|"CentOS"|"Fedora")/' $varB
+
+
 export LANG=en_US.UTF-8
-export DSY_LIBPATH_VARNAME=LD_LIBRARY_PATH
 export DSY_OS_Release="CentOS"
 export DSY_Skip_CheckPrereq=1 #Added to avoid prerequisite check
-export DSY_OS="linux_a64"
 export DSY_Force_OS=$DSY_OS_Release
+export DSY_Skip_CheckPrereq=1
 export XLIB_SKIP_ARGB_VISUALS=1
 export run_mode=INTERACTIVE
 ```
