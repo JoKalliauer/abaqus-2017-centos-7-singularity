@@ -9,10 +9,10 @@ setting things up in such a way that we can run Abaqus CAE with mesa.
 ```bash
 export LANG=en_US.UTF-8
 export DSY_LIBPATH_VARNAME=LD_LIBRARY_PATH
-export DSY_OS_Release=${DSY_OS_Release}
+export DSY_OS_Release="CentOS"
 export DSY_Skip_CheckPrereq=1 #Added to avoid prerequisite check
-export DSY_Force_OS=$DSY_OS_Release
 export DSY_OS=linux_a64
+export DSY_Force_OS=$DSY_OS
 export XLIB_SKIP_ARGB_VISUALS=1
 export run_mode=INTERACTIVE
 ```
