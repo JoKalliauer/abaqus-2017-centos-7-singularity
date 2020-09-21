@@ -5,8 +5,22 @@ setting things up in such a way that we can run Abaqus CAE with mesa.
 
 ## Preparations
 
-1. Abaqus is copied to /opt/abaqus/ (or anything else).
-2. Make sure you have Singularity 3.6.2 (or newer) installed. (On newer OS you might need a newer singularity-version.)
+1. Abaqus is copied to /opt/abaqus/ (or anything else), if you encouter problems try:
+```bash
+export LANG=en_US.UTF-8
+export DSY_LIBPATH_VARNAME=LD_LIBRARY_PATH
+export DSY_OS_Release=${DSY_OS_Release}
+export DSY_Skip_CheckPrereq=1 #Added to avoid prerequisite check
+export DSY_Force_OS=$DSY_OS_Release
+export DSY_OS=linux_a64
+export XLIB_SKIP_ARGB_VISUALS=1
+export run_mode=INTERACTIVE
+```
+2. Install the hotfix for your abaqus from https://www.3ds.com/support/download/
+2.1 2018-HF16 (or later)
+2.2 Abaqus 2019-HF10 (or later)
+2.3 Abaqus 2020 HF5 (2020 FP.CFA.2038)  (or later)
+3. Make sure you have Singularity 3.6.2 (or newer) installed. (On newer OS you might need a newer singularity-version.)
 A installguide can be found at https://github.com/hpcng/singularity/blob/master/INSTALL.md
 
 ```bash
@@ -15,7 +29,7 @@ if [ -f "/etc/debian_version" ]; then
 fi
 if [ "$(grep -Ei 'fedora|redhat' /etc/*release)" ]; then
  sudo yum groupinstall -y 'Development Tools'
- sudo yum install -y golang libseccomp-devel squashfs-tools cryptsetup squashfs-tools wget pkg-config git gcc-go golang-bin
+ sudo yum install -y golang libseccomp-devel squashfs-tools cryptsetup squashfs-tools wget pkg-config git gcc-go golang-bin ksh
 fi
 rm -r /usr/local/go
 export VERSION=1.15.1 #https://golang.org/doc/install
