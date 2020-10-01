@@ -53,6 +53,7 @@ export DSY_Skip_CheckPrereq=1
 export XLIB_SKIP_ARGB_VISUALS=1
 export run_mode=INTERACTIVE
 ```
+more details can be found at http://coquake.eu/wp-content/uploads/2019/02/Abaqus18_on_Ubuntu18.04LTS.pdf
 2. Install the hotfix for your abaqus from https://www.3ds.com/support/download/
 2.1 2018-HF16 (or later)
 2.2 Abaqus 2019-HF10 (or later)
