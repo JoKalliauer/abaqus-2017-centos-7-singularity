@@ -1,7 +1,14 @@
 # Singularity container for Abaqus on Ubuntu 20.04
 
-Abaqus works well under Centos but is much less likely to work well under a bleeding edge distro like Arch, so let's run Abaqus within a Singularity container,
+Abaqus works well under Centos but is much less likely to work well under a bleeding edge distro like Arch or Ubuntu, so let's run Abaqus within a Singularity container,
 setting things up in such a way that we can run Abaqus CAE with mesa.
+
+## Update of autumn 2020
+In September 2020 Abaqus released a HotFix5 for Abaqus 2020 that solves the terminating issue.
+
+There are also HotFix16 for Abaqus 2018 and HotFix11 for Abaqus 2019, which might/should fix this issue.
+
+For more infos check [https://github.com/willfurnass/abaqus-2017-centos-7-singularity/issues/5#issue-713025844](https://github.com/willfurnass/abaqus-2017-centos-7-singularity/issues/5#issue-713025844)
 
 ## Preparations
 
