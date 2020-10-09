@@ -118,7 +118,12 @@ export DSY_Skip_CheckPrereq=1 #Added to avoid prerequisite check
 export XLIB_SKIP_ARGB_VISUALS=1 #to avoid transparent-problems in Abaqus CAE
 export run_mode=INTERACTIVE #if you run a problem you should see in the terminal if it is finished
 ```
+
 more details can be found at http://coquake.eu/wp-content/uploads/2019/02/Abaqus18_on_Ubuntu18.04LTS.pdf
+
+after that search for "StartTUI.sh" (alternativ you could use the grafical interface "StartGUI.sh") and start the script, and follow the requested steps.
+
+
 
 
 ## Running the container
