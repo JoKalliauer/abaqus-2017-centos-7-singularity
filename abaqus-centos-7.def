@@ -25,13 +25,8 @@ Include: yum
 %post
     cd /iso-unpacked/
     rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-    yum install -y VirtualGL glx-utils 
-    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo
-    yum clean all && rm -rf /var/cache/yum
-
-    rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
     until yum makecache -y --disablerepo='*' --enablerepo='VirtualGL'; do :;done
-    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which gcc-gfortran vim gcc-c++ glibc.i686
+    yum install -y ksh redhat-lsb-core perl VirtualGL libjpeg-turbo which gcc-gfortran vim gcc-c++ glibc.i686 glx-utils
     yum clean all && rm -rf /var/cache/yum
 
     mkdir /calc
