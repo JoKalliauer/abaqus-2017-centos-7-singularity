@@ -2,5 +2,5 @@
 name=VirtualGL official RPMs
 baseurl=https://sourceforge.net/projects/virtualgl/files
 gpgcheck=1
-gpgkey=file:///abqbuild/VirtualGL.key
+gpgkey=https://raw.githubusercontent.com/JoKalliauer/abaqus-centos-7-singularity/master/assets/VirtualGL.key
 enabled=1
