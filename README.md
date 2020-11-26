@@ -1,8 +1,11 @@
 # Update2020: Abaqus2020HF5 on Ubuntu20.04/Fedora32 without container
-In September 2020 Abaqus released a HotFix5: `Abaqus 2020 HF5 (2020 FP.CFA.2038)` for Abaqus 2020 that solves the terminating issue, it can be downloaded from  from https://www.3ds.com/support/download/ (login required).
+In September 2020 Abaqus released a HotFix5: `Abaqus 2020 HF5 (2020 FP.CFA.2038)`  for Abaqus 2020 that solves the terminating issue, it can be downloaded from  from https://www.3ds.com/support/download/ (login required).
+
+The file needed should be `2020.FP.CFA.2038.Part_SIMULIA_EstPrd.Linux64.tar` with 2GB.
 
 For more infos check [https://github.com/willfurnass/abaqus-2017-centos-7-singularity/issues/5#issue-713025844](https://github.com/willfurnass/abaqus-2017-centos-7-singularity/issues/5#issue-713025844)
 
+Meantime Abaqus2021 got released, I assume the this version can be installed and used without any hotfix.
 
 # Singularity container for Abaqus on Ubuntu20.04/Fedora32
 
