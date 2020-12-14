@@ -27,7 +27,8 @@ fi
 rm -r /usr/local/go
 export VERSION=1.15.1 #https://golang.org/doc/install
 export OS=linux ARCH=amd64  # change this as you need
-wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz && \
+wget -O /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz https://dl.google.com/go/go${VERSION}.${OS}-${ARCH}.tar.gz
+mkdir -p /usr/local
 sudo tar -C /usr/local -xzf /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz
 echo 'export PATH=/usr/local/go/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
 export VERSION=3.6.2 && # adjust this as necessary
